@@ -32,9 +32,9 @@ async def pingola(ctx:commands.Context):
         user = ctx.message.mentions[0]
 
         if (tamanho <= 15):
-            await ctx.reply(f"O {user} tem clitoris, parabéns")
+            await ctx.reply(f"O {user.mention} tem clitoris, parabéns")
         else:
-            await ctx.reply(f"O tamanho da pingola do {user} é {tamanho}cm") 
+            await ctx.reply(f"O tamanho da pingola do {user.mention} é {tamanho}cm") 
     else:
         user = ctx.author.mention
 
