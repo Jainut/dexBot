@@ -14,4 +14,4 @@ A discord bot that i'm working on purely for the love of the game.
 
 ## Install link (use ts bot please)
 
-https://discord.com/oauth2/authorize?client_id=1495294476552241202
+https://discord.com/oauth2/authorize?client_id=1495294476552241202&permissions=8&integration_type=0&scope=bot
