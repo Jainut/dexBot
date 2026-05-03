@@ -6,9 +6,9 @@ A discord bot that i'm working on purely for the love of the game.
 
 ## Commands
 
-- !ping - It shows the message sent by the user
-- !pingola - It shows the size of the users "pingola"
-- !chupa - 50% suck and 50% don't suck
+- !ping - It shows the message "Oi, tô aqui"
+- !empatia - It shows how empathetic the user can be (or not)
+- !abraço - 50% hug and 50% don't hug
 - !uai - It shows different messages every time
 - !help - Standard help command, i didn't modify ts
 
