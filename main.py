@@ -11,14 +11,19 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents) # pré definicao padrao do bot e tals
 
-class MeuHelp(commands.HelpCommand): # mudando o menu de help pra ficar do jeito que eu quero e vai tomando filhote
+class MeuHelp(commands.HelpCommand):
     async def send_bot_help(self, mapping):
-        mensagem = "Comandos disponíveis:\n"
+        embed = discord.Embed(title="Ajuda", color=discord.Color.blue())
+
         for cog, commands_list in mapping.items():
             for command in commands_list:
-                mensagem += f"!{command.name} - {command.help}\n"
-        
-        await self.get_destination().send(mensagem)
+                embed.add_field(
+                    name=f"!{command.name}",
+                    value=command.help or "Sem descrição",
+                    inline=False
+                )
+
+        await self.get_destination().send(embed=embed)
 
 bot.help_command = MeuHelp()
 
