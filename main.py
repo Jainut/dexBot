@@ -61,39 +61,36 @@ async def uai(ctx:commands.Context, *, texto=""):
         await ctx.reply(f"{texto} é coisa do demônio")
 
 
-@bot.command() # comando chupa, que tem 50% de chance de responder "Ixi mano sai fora mano" ou "Ué, chupo"
-async def chupa(ctx:commands.Context):
+@bot.command() # comando abraço, que tem 50% de chance de responder "Ixi mano sai fora mano" ou "Ué, abraço"
+async def abraço(ctx:commands.Context):
     zeroum = random.randint(0, 1)
 
     if zeroum == 0:
         await ctx.reply("Ixi mano sai fora mano")
     else:
-        await ctx.reply("Ué, chupo")
+        await ctx.reply("Ué, abraço")
 
 @bot.command() # mostrar o tamanho da pingola
-async def pingola(ctx:commands.Context):
-    tamanho = random.randint(5, 35) # randomizando o tamanho e tals
+async def empatia(ctx:commands.Context):
+    tamanho = random.randint(0, 101) # randomizando o tamanho e tals
 
     if (ctx.message.mentions): # se mencionar outra pessoa da o tamanho da pingola dela, se nao mencionar ninguem da o tamanho da pingola do proprio usuario
         user = ctx.message.mentions[0]
 
-        if (tamanho <= 15):
-            await ctx.reply(f"O {user.mention} tem clitoris, parabéns")
+        if (tamanho <= 65):
+            await ctx.reply(f"O {user.mention} é uma pessoa maléfica e que definitivamente não se importa com as outras pessoas, parabéns")
         else:
-            await ctx.reply(f"O tamanho da pingola do {user.mention} é {tamanho}cm") 
+            await ctx.reply(f"O {user.mention} tem {tamanho}% de amor pelas pessoas, parabéns por ser empático e gentil") 
     else:
         user = ctx.author.mention
 
-        if (tamanho <= 15):
-            await ctx.reply("Você tem clitoris, parabéns")
+        if (tamanho <= 65):
+            await ctx.reply(f"Você é uma pessoa maléfica e que definitivamente não se importa com as outras pessoas, parabéns")
         else:
-            await ctx.reply(f"O tamanho da sua pingola é {tamanho}cm") 
+            await ctx.reply(f"Você tem {tamanho}% de amor pelas pessoas, parabéns por ser empático e gentil") 
 
 @bot.command() # Comando pra repetir o que o usuario mandar e tals
-async def ping(ctx:commands.Context, *, texto=""):
-    if (texto == ""):
-        await ctx.send("Tem que escrever algo depois do comando bixo fei")
-    else:
-        await ctx.send(f"O que é {texto}?")
+async def ping(ctx:commands.Context):
+    await ctx.reply("Oi, tô aqui")
 
 bot.run(TOKEN) # Rodando essa bomba... 🔥🔥🔥
