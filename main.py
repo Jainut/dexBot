@@ -11,11 +11,22 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents) # pré definicao padrao do bot e tals
 
+class MeuHelp(commands.HelpCommand): # mudando o menu de help pra ficar do jeito que eu quero e vai tomando filhote
+    async def send_bot_help(self, mapping):
+        mensagem = "Comandos disponíveis:\n"
+        for cog, commands_list in mapping.items():
+            for command in commands_list:
+                mensagem += f"!{command.name} - {command.help}\n"
+        
+        await self.get_destination().send(mensagem)
+
+bot.help_command = MeuHelp()
+
 @bot.event # quando o bot estiver pronto, ele vai printar isso no terminal
 async def on_ready():
     print("Essa bomba de bot ta rodando")
 
-@bot.command()
+@bot.command(help="Responde com uma frase aleatória, ou responde de acordo com o que o usuário mandar") # comando uai, que tem 10 respostas aleatorias, e se o usuario mandar algo com "desgraça" ou "desgraca" ele tem 4 respostas aleatorias, e se mencionar alguem ele fala que a pessoa é pagão, e se mandar outra coisa ele fala que aquilo é coisa do demônio
 async def uai(ctx:commands.Context, *, texto=""):
     if texto == "":
         numsRandom = random.randint(0, 9)
@@ -61,7 +72,7 @@ async def uai(ctx:commands.Context, *, texto=""):
         await ctx.reply(f"{texto} é coisa do demônio")
 
 
-@bot.command() # comando abraço, que tem 50% de chance de responder "Ixi mano sai fora mano" ou "Ué, abraço"
+@bot.command(help="50% de chance de responder 'Ixi mano sai fora mano' ou 'Ué, abraço'") # comando abraço, que tem 50% de chance de responder "Ixi mano sai fora mano" ou "Ué, abraço"
 async def abraço(ctx:commands.Context):
     zeroum = random.randint(0, 1)
 
@@ -70,11 +81,11 @@ async def abraço(ctx:commands.Context):
     else:
         await ctx.reply("Ué, abraço")
 
-@bot.command() # mostrar o tamanho da pingola
+@bot.command(help="Mostra o nível de empatia de um usuário") # mostra o nível de empatia de um usuário, tem 65% de chance de falar que a pessoa é maléfica e que não se importa com os outros, e 35% de chance de falar que a pessoa tem amor pelas outras pessoas, e se mencionar alguem fala o resultado da pessoa mencionada, se nao mencionar ninguem fala do proprio usuario
 async def empatia(ctx:commands.Context):
     tamanho = random.randint(0, 101) # randomizando o tamanho e tals
 
-    if (ctx.message.mentions): # se mencionar outra pessoa da o tamanho da pingola dela, se nao mencionar ninguem da o tamanho da pingola do proprio usuario
+    if (ctx.message.mentions): # se mencionar alguem, fala do usuario mencionado, se nao mencionar ninguem fala do proprio usuario
         user = ctx.message.mentions[0]
 
         if (tamanho <= 65):
@@ -89,7 +100,7 @@ async def empatia(ctx:commands.Context):
         else:
             await ctx.reply(f"Você tem {tamanho}% de amor pelas pessoas, parabéns por ser empático e gentil") 
 
-@bot.command() # Comando pra repetir o que o usuario mandar e tals
+@bot.command(help="Responde 'Oi, tô aqui'") # comando ping, que responde "Oi, tô aqui"
 async def ping(ctx:commands.Context):
     await ctx.reply("Oi, tô aqui")
 
