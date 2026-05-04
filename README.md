@@ -2,15 +2,15 @@
 
 A discord bot that i'm working on purely for the love of the game.
 
-- Prefix to use commands: !
+- Prefix to use commands: dex!
 
 ## Commands
 
-- !ping - It shows the message "Oi, tô aqui"
-- !empatia - It shows how empathetic the user can be (or not)
-- !abraço - 50% hug and 50% don't hug
-- !uai - It shows different messages every time
-- !help - Standard help command, i didn't modify ts
+- dex!ping - It shows the message "Oi, tô aqui"
+- dex!empatia - It shows how empathetic the user can be (or not)
+- dex!abraço - 50% hug and 50% don't hug
+- dex!uai - It shows different messages every time
+- dex!help - Standard help command, i didn't modify ts
 
 ## Install link (use ts bot please)
 
