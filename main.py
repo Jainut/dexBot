@@ -9,7 +9,7 @@ TOKEN = os.getenv("TOKEN") # puxando o token do .env e pa
 
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix="!", intents=intents) # pré definicao padrao do bot e tals
+bot = commands.Bot(command_prefix="dex!", intents=intents) # pré definicao padrao do bot e tals
 
 class MeuHelp(commands.HelpCommand):
     async def send_bot_help(self, mapping):
